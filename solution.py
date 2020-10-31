@@ -57,6 +57,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         if pID == ID:
             timeSent = struct.unpack("d", recPacket[28:36])[0]
             delay = (timeReceived - timeSent) * 1000
+            rttTime.append(delay)
             return delay
         else:
             return "Expected " + pID + " but received " + ID
