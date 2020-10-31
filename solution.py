@@ -56,7 +56,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
             return "Code is not 0."
         if pID == ID:
             BID = struct.calcsize('d')
-            timeSent = struct.unpack("d", recPacket[28:36 + BID])[0]
+            timeSent = struct.unpack("d", recPacket[28:28 + BID])[0]
             delay = (timeReceived - timeSent) * 1000
             return delay
         else:
