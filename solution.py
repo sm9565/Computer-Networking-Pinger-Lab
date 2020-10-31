@@ -48,7 +48,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fill in start
 
         # Fetch the ICMP header from the IP packet
-        type, code, checksum, pID, sequence = struct.unpack("bbHHh", recPacket[20:38])
+        type, code, checksum, pID, sequence = struct.unpack("bbHHh", recPacket[20:28])
 
         if type != 0:
             return "Type is not 0."
